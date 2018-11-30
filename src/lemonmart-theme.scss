@@ -9,8 +9,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$lemonmart-primary: mat-palette($mat-red, 500);
-$lemonmart-accent:  mat-palette($mat-indigo, A400);
+$lemonmart-primary: mat-palette($mat-green, 800);
+$lemonmart-accent:  mat-palette($mat-lime, A400);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $lemonmart-app-theme: mat-light-theme($lemonmart-primary, $lemonmart-accent);
