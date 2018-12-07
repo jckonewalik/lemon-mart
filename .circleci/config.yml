@@ -1,7 +1,7 @@
-version: 2
+version: 2 
 jobs:
   build:
-    docker:
+    docker: 
       - image: docker:17.12.0-ce-git
     working_directory: /usr/src
     steps:
@@ -10,5 +10,5 @@ jobs:
         docker_layer_caching: false
       - run:
         name: Build Docker Image
-        command: |
+        command: | 
           npm run build:ci
