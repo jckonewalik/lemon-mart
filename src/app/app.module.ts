@@ -4,18 +4,23 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { HomeComponent } from './home/home.component';
 import { PageNotFountComponent } from './page-not-fount/page-not-fount.component';
+import { AuthService } from './auth/auth.service';
+import { LoginComponent } from './login/login.component';
+import { UiService } from './common/ui.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFountComponent
+    PageNotFountComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +28,11 @@ import { PageNotFountComponent } from './page-not-fount/page-not-fount.component
     BrowserAnimationsModule,
     MaterialModule,        
     FlexLayoutModule,
-    HttpClientModule 
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService, UiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
