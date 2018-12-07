@@ -10,5 +10,4 @@ jobs:
         docker_layer_caching: false
       - run:
         name: Build Docker Image
-        command: | 
-          npm run build:ci
+        command: npm run build:ci
