@@ -7,7 +7,14 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:prod": "ng build --prod",
+    "test:prod":"npm test -- --watch=false"
+  },
+  "config": {
+    "imageRepo": "jckonewalik/lemon-mart",
+    "imageName": "lemon-mart",
+    "imagePort": "8080"
   },
   "private": true,
   "dependencies": {
