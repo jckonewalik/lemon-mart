@@ -10,7 +10,7 @@ ENV BUILD_SCRIPT build:prod
 RUN mkdir -p $SRC_DIR
 WORKDIR $SRC_DIR 
 # if necessary, do SSH setup here or copy source code from local or CI environment 
-RUN git clone $ GIT_REPO .
+RUN git clone $GIT_REPO .
 
 # COPY $SRC_CODE_LOCATION .
 RUN npm install 
@@ -28,7 +28,7 @@ COPY --from=builder $BUILDER_SRC_DIR $SRC_DIR
 
 CMD 'npm run $TEST_SCRIPT'
 
-FROM duluca/minimal-nginx-web-server:1.13.8-alpine E
+FROM duluca/minimal-nginx-web-server:1.13.8-alpine
 ENV BUILDER_SRC_DIR /usr/src
 COPY --from=builder $BUILDER_SRC_DIR/dist /var/www 
 CMD 'nginx'

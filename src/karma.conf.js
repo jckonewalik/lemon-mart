@@ -37,7 +37,7 @@ module.exports = function (config) {
         ],
         debug: true
       },
-      ChromiumHeadless: {
+      ChromiumNoSandbox: {
         base: 'ChromiumHeadless',
         flags: ['--no-sandbox', '--disable-translate', '--disable-extensions']
       }
