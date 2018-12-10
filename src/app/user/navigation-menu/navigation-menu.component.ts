@@ -3,11 +3,26 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-navigation-menu',
   template: `
-    <p>
-      navigation-menu works!
-    </p>
+    <mat-nav-list>
+      <h3 matSubheader>Manager</h3>
+      <a mat-list-item routerLinkActive="active-link" routerLink="/manager/users">Users</a>
+      <a mat-list-item routerLinkActive="active-link" routerLink="/manager/receipts">Receipts</a>
+      <h3 matSubheader>Inventory</h3>
+      <a mat-list-item routerLinkActive="active-link" routerLink="/inventory/stockEntry">Stock Entry</a>
+      <a mat-list-item routerLinkActive="active-link" routerLink="/manager/products">Products</a>
+      <a mat-list-item routerLinkActive="active-link" routerLink="/manager/categories">Categories</a>
+      <h3 matSubheader>Clerk</h3>
+      <a mat-list-item routerLinkActive="active-link" routerLink="/pos">POS</a>
+    </mat-nav-list>
   `,
-  styles: []
+  styles: [
+    `
+    .active-link {
+      font-weight: bold;
+      border-left: 3px solid green;
+    }
+    `
+  ]
 })
 export class NavigationMenuComponent implements OnInit {
 

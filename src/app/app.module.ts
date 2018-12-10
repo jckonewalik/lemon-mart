@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,13 +14,16 @@ import { PageNotFountComponent } from './page-not-fount/page-not-fount.component
 import { AuthService } from './auth/auth.service';
 import { LoginComponent } from './login/login.component';
 import { UiService } from './common/ui.service';
+import { AuthHttpInterceptor } from './auth/auth-http-interceptor';
+import { NavigationMenuComponent } from './user/navigation-menu/navigation-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PageNotFountComponent,
-    LoginComponent
+    LoginComponent,
+    NavigationMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,11 @@ import { UiService } from './common/ui.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, UiService],
+  providers: [AuthService, UiService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthHttpInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
